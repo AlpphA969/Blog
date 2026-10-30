@@ -16,6 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Migrations", "02.Infra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Endpiont.Api", "03.Presentation\Blog.Endpiont.Api\Blog.Endpiont.Api.csproj", "{A3286D58-FBBA-4326-B348-2B57EA2BB409}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Identity.Persistence.EF", "02.Infrastructure\Blog.Identity.Persistence.EF\Blog.Identity.Persistence.EF.csproj", "{BC1C4687-0B6D-463E-9535-2D2CFAD2532F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,7 @@ Global
 		{FEC2D06E-96DE-478B-B869-44A6DD3D175E} = {3610689C-D93E-4FA4-BBE9-87A8E810459A}
 		{64E1035A-5CF8-4008-A6C5-9D651C19194D} = {3610689C-D93E-4FA4-BBE9-87A8E810459A}
 		{A3286D58-FBBA-4326-B348-2B57EA2BB409} = {CD4514C3-4B93-4732-9E1C-677887B53115}
+		{BC1C4687-0B6D-463E-9535-2D2CFAD2532F} = {3610689C-D93E-4FA4-BBE9-87A8E810459A}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{9FC03E7A-9613-4653-883C-7653133A7C56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -49,5 +52,9 @@ Global
 		{A3286D58-FBBA-4326-B348-2B57EA2BB409}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3286D58-FBBA-4326-B348-2B57EA2BB409}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3286D58-FBBA-4326-B348-2B57EA2BB409}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC1C4687-0B6D-463E-9535-2D2CFAD2532F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC1C4687-0B6D-463E-9535-2D2CFAD2532F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC1C4687-0B6D-463E-9535-2D2CFAD2532F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC1C4687-0B6D-463E-9535-2D2CFAD2532F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
