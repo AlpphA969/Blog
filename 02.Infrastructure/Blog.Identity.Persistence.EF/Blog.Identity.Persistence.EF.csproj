@@ -7,11 +7,14 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="Autofac" Version="9.3.4" />
+      <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="11.0.2" />
       <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="10.0.14" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\..\01.Core\Blog.Entities\Blog.Entities.csproj" />
+      <ProjectReference Include="..\..\01.Core\Blog.Services\Blog.Services.csproj" />
     </ItemGroup>
 
 </Project>
