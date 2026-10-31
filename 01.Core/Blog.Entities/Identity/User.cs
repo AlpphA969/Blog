@@ -2,7 +2,7 @@
 
 namespace Blog.Entities.Identity;
 
-public class ApplicationUser : IdentityUser<Guid>
+public class User : IdentityUser<Guid>
 {
     
     

@@ -4,7 +4,7 @@ namespace Blog.Infrastructure;
 
 public class DependencyInjection : Module
 {
-    public static void Register(ContainerBuilder builder)
+    protected override void Load(ContainerBuilder builder)
     {
         var assembly = typeof(DependencyInjection).Assembly;
         builder.RegisterAssemblyTypes(assembly)

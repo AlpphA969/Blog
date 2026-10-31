@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Blog.Identity.Persistence.EF;
 
-public class EFIdentityDataContext : IdentityDbContext<ApplicationUser, IdentityRole<Guid>, Guid>
+public class EFIdentityDataContext : IdentityDbContext<User, IdentityRole<Guid>, Guid>
 {
     public EFIdentityDataContext(DbContextOptions<EFIdentityDataContext> options) : base(options)
     {

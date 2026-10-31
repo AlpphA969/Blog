@@ -18,9 +18,7 @@ public class EFPostEntityMap : IEntityTypeConfiguration<Entities.Post>
 
         builder.Property(p => p.ImageUrl);
         
-        builder.HasMany(p => p.Tags)
-            .WithOne()
-            .OnDelete(DeleteBehavior.Cascade);
+        builder.Property(p=>p.IsPublished);
 
 
 
