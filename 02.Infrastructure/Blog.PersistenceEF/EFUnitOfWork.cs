@@ -5,9 +5,9 @@ namespace Blog.PersistenceEF;
 
 public class EFUnitOfWork : IUnitOfWork
 {
-    private readonly DbContext _dbContext;
+    private readonly EFDataContext _dbContext;
 
-    public EFUnitOfWork(DbContext dbContext)
+    public EFUnitOfWork(EFDataContext dbContext)
     {
         _dbContext = dbContext;
     }

@@ -9,6 +9,7 @@ using Blog.Infrastructure.Identity;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
+using Scalar.AspNetCore;
 using Services;
 namespace Blog.Endpiont.Api;
 
@@ -90,11 +91,12 @@ public class Program
         if (app.Environment.IsDevelopment())
         {
             app.MapOpenApi();
+            app.MapScalarApiReference();
         }
 
         app.UseHttpsRedirection();
 
-        app.UseAuthorization();
+        
 
         app.MapControllers().RequireAuthorization();
         
