@@ -30,4 +30,15 @@ public class CategoryController
         var result = await _categoryService.GetAsync(id);
         return result;
     }
+
+    [HttpPut("{id}")]
+    public async Task<Result<Guid>> UpdateAsync(
+        [FromBody] UpdateCategoryDto dto,Guid id,
+        CancellationToken cancellationToken = default)
+    {
+        var result = await _categoryService.UpdateAsync(dto,id,
+            cancellationToken);
+        return result;
+    
+    }
 }

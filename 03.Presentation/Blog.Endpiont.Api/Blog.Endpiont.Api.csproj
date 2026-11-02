@@ -21,6 +21,10 @@
       <ProjectReference Include="..\..\02.Infrastructure\Blog.PersistenceEF\Blog.PersistenceEF.csproj" />
       <ProjectReference Include="..\..\01.Core\Blog.Services\Blog.Services.csproj" />
     </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="wwwroot\" />
+    </ItemGroup>
     
 
 </Project>

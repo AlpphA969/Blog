@@ -1,4 +1,5 @@
-﻿using Blog.Entities;
+﻿using System.Xml;
+using Blog.Entities;
 using Services.Categories.Contracts;
 using Services.Categories.Contracts.Exceptions;
 using Services.Categories.Dto;
@@ -22,7 +23,7 @@ public class CategoryService : ICategoryService
         CancellationToken cancellationToken)
     {
         var categoryExists = await _categories.
-            CategoryExist(dto.Title ,cancellationToken );
+            CategoryExistAsync(dto.Title ,cancellationToken );
         
         if (categoryExists == true)
         {
@@ -53,6 +54,34 @@ public class CategoryService : ICategoryService
 
         }
         return result;
+
+    }
+
+    public async Task<Result<Guid>> UpdateAsync(UpdateCategoryDto dto,
+        Guid id,
+        CancellationToken cancellationToken)
+    {
+        var category =
+            await _categories.GetCategoryByIdAsync(id, cancellationToken);
+        if (category == null)
+        {
+            return CategoryExceptions.CategoryNotFound();
+        }
+
+        var categoryWithTheSameTitleExists = await
+            _categories.CategoryExistAsync(dto.Title, cancellationToken);
+        if (categoryWithTheSameTitleExists == true)
+        {
+            return CategoryExceptions.CategoryAlreadyExists();
+        }
+
+
+    category.Title = dto.Title;
+        category.UpdatedAt = DateTime.UtcNow;
+
+         await _unitOfWork.SaveChangesAsync(cancellationToken);
+         
+         return category.Id;
 
     }
 }

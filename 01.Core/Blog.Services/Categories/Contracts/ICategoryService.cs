@@ -10,5 +10,9 @@ public interface ICategoryService
         CancellationToken cancellationToken);
 
     Task<Result<GetCategoryDto>> GetAsync(Guid id);
+    
+    Task<Result<Guid>> UpdateAsync(UpdateCategoryDto dto,
+        Guid id,
+        CancellationToken cancellationToken);
 
 }

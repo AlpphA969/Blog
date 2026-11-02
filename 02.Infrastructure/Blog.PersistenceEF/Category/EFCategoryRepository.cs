@@ -21,7 +21,7 @@ public class EFCategoryRepository : ICategoryRepository
         
     }
 
-    public async Task<bool> CategoryExist(string title,
+    public async Task<bool> CategoryExistAsync(string title,
         CancellationToken cancellationToken = default)
     {
         var result = await _categories.Where(c=>c.Title == title)
@@ -51,6 +51,20 @@ public class EFCategoryRepository : ICategoryRepository
 
             }).FirstOrDefaultAsync(cancellationToken);
         
+        return category;
+    }
+
+    public void UpdateCategoryAsync(Entities.Category category,
+        CancellationToken cancellationToken = default)
+    {
+        _categories.Update(category);
+    }
+
+    public async Task<Entities.Category?> GetCategoryByIdAsync(Guid categoryId,
+        CancellationToken cancellationToken = default)
+    {
+        var category = await _categories.Where(c => c.Id == categoryId)
+            .FirstOrDefaultAsync(cancellationToken);
         return category;
     }
 }

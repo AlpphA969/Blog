@@ -16,6 +16,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="FileService\Contracts\Dto\" />
       <Folder Include="Posts\" />
       <Folder Include="Tags\" />
     </ItemGroup>
