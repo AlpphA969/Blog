@@ -13,5 +13,8 @@ public class Post :Entity
     
     public HashSet<PostCategory> PostCategories { get; set; } = [];
     
+    public HashSet<PostTag> PostTags { get; set; } = [];
+    
+    
     
 }

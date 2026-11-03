@@ -69,6 +69,7 @@ public class Program
         builder.Services.AddOpenApi();
 
         var app = builder.Build();
+        app.UseStaticFiles();
         
         if (app.Environment.IsDevelopment())
         {

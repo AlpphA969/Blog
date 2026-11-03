@@ -7,6 +7,9 @@ public class EFTagEntityMap : IEntityTypeConfiguration<Entities.Tag>
 {
     public void Configure(EntityTypeBuilder<Entities.Tag> builder)
     {
+        
+        builder.ToTable("Tags");
+        builder.HasKey(t => t.Id);
         builder.Property(t => t.Title).HasMaxLength(100).IsRequired();
     }
 }

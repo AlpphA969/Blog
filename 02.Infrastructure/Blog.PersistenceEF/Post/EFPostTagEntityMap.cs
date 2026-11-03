@@ -20,7 +20,7 @@ public class EFPostTagEntityMap : IEntityTypeConfiguration<PostTag>
             .IsRequired();
         
         builder.HasOne(c => c.Post)
-            .WithMany()
+            .WithMany(pt=>pt.PostTags)
             .HasForeignKey(c => c.PostId)
             .IsRequired();
     }

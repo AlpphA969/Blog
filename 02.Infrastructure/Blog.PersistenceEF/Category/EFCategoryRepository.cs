@@ -67,4 +67,16 @@ public class EFCategoryRepository : ICategoryRepository
             .FirstOrDefaultAsync(cancellationToken);
         return category;
     }
+
+    public async Task<bool> CategoriesValidation(HashSet<Guid> categories,
+        CancellationToken cancellationToken)
+    {
+        var result = await _categories.Where(c => categories.Contains(c.Id))
+            .ToListAsync(cancellationToken);
+        if (result.Count != categories.Count)
+        {
+            return false;
+        }
+        return true;
+    }
 }

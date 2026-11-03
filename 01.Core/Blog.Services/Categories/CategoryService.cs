@@ -76,7 +76,7 @@ public class CategoryService : ICategoryService
         }
 
 
-    category.Title = dto.Title;
+        category.Title = dto.Title;
         category.UpdatedAt = DateTime.UtcNow;
 
          await _unitOfWork.SaveChangesAsync(cancellationToken);

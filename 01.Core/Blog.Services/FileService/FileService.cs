@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Blog.Infrastructure.FileService;
+using Microsoft.AspNetCore.Http;
 using Services.Contracts;
 using Services.FileService.Contracts;
 using Services.FileService.Contracts.FileExceptions;
@@ -27,6 +28,6 @@ public class FileService : IFileService
         string fullPath = Path.Combine(path, fileName);
         using FileStream fs = new  FileStream(fullPath, FileMode.Create );
         file.CopyTo(fs);
-        return fullPath;
+        return Path.Combine(FileSettings.BaseUrl,fileName);
     }
 }

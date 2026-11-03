@@ -19,5 +19,8 @@ public interface ICategoryRepository
 
     Task<Category?> GetCategoryByIdAsync(Guid categoryId,
         CancellationToken cancellationToken = default);
+    
+    Task<bool> CategoriesValidation(HashSet<Guid> categories,
+        CancellationToken cancellationToken);
 
 }
