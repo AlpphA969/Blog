@@ -11,5 +11,8 @@ public interface IPostRepository
     
     Task<GetPostDto?> GetPostAsync(Guid id,
         CancellationToken cancellationToken);
+    
+     Task<Post?> GetPostByIdAsync(Guid id,
+         CancellationToken cancellationToken);
 
 }

@@ -29,7 +29,7 @@ public class EFPostRepository : IPostRepository
             .AnyAsync(cancellationToken);
         return exist;
     }
-
+    
     public async Task<GetPostDto?> GetPostAsync(Guid id, 
         CancellationToken cancellationToken)
     {
@@ -49,6 +49,14 @@ public class EFPostRepository : IPostRepository
                 
 
             }).FirstOrDefaultAsync(cancellationToken);
+        return post;
+    }
+    
+    public async Task<Entities.Post?> GetPostByIdAsync(Guid id,
+        CancellationToken cancellationToken)
+    {
+        var post = await _posts.Where(p => p.Id == id)
+            .FirstOrDefaultAsync(cancellationToken);
         return post;
     }
 }

@@ -42,6 +42,7 @@ public class PostService : IPostService
         var categoriesValidation =
             await _categoryRepository
                 .CategoriesValidation(dto.Categories , cancellationToken);
+        
         if (categoriesValidation == false)
         {
             return PostExceptions.CategoryInvalid();
