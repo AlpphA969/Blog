@@ -24,7 +24,7 @@ public class FileService : IFileService
 
         }
         string path = Path.Combine(Directory.GetCurrentDirectory() , "wwwroot/uploads" );
-        string fileName = file.FileName;
+        string fileName = Guid.NewGuid() + extension;
         string fullPath = Path.Combine(path, fileName);
         using FileStream fs = new  FileStream(fullPath, FileMode.Create );
         file.CopyTo(fs);

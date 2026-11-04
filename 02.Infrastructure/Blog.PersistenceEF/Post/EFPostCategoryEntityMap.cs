@@ -24,7 +24,6 @@ public class EFPostCategoryEntityMap : IEntityTypeConfiguration<PostCategory>
             .HasForeignKey(p => p.PostId)
             .IsRequired();
         
-
-
+        
     }
 }

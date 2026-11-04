@@ -1,20 +1,8 @@
-using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using Blog.Identity.Persistence.EF;
-using Blog.PersistenceEF;
-using Microsoft.EntityFrameworkCore;
-using Autofac;
-using Autofac.Extensions.DependencyInjection;
 using Blog.Endpiont.Api.Extensions;
 using Blog.Endpiont.Api.Filters;
-using Blog.Entities.Identity;
-using Blog.Infrastructure.Identity;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.IdentityModel.Tokens;
 using Scalar.AspNetCore;
-using Services;
 namespace Blog.Endpiont.Api;
 
 public class Program
@@ -22,27 +10,10 @@ public class Program
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
-        
-        
-        builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
-        builder.Host.ConfigureContainer<ContainerBuilder>(container =>
-        {
-            container.RegisterModule<PersistenceEF.DependencyInjection>();
-            container.RegisterModule<Infrastructure.DependencyInjection>();
-            container.RegisterModule<Blog.Identity.Persistence.EF.DependencyInjection>();
-            container.RegisterModule<Services.DependencyInjection>();
-            
-        });
-        
-        builder.Services.AddDbContext<EFDataContext>(options =>
-            options.UseNpgsql(
-                builder.Configuration.GetConnectionString("DefaultConnection")));
-        
-        builder.Services.AddDbContext<EFIdentityDataContext>(options =>
-            options.UseNpgsql(
-                builder.Configuration.GetConnectionString("DefaultConnection")));
-
+        builder.Host.AddAuroFac();
         builder.Services.AddIdentitySetup(builder.Configuration);
+        builder.Services.AddDataBase(builder.Configuration);
+        builder.Services.AddApiErrorHandling();
         
         
         builder.Services
@@ -54,7 +25,7 @@ public class Program
                 options.JsonSerializerOptions.DefaultIgnoreCondition =
                     JsonIgnoreCondition.WhenWritingNull;
             });
-        builder.Services.AddApiErrorHandling();
+        
         
         
         

@@ -2,6 +2,6 @@
 
 public interface ITagRepository
 {
-    Task<bool> TagsValidation(HashSet<Guid> tags ,
+    Task<bool> TagsValidation(List<Guid> tags ,
         CancellationToken cancellationToken);
 }

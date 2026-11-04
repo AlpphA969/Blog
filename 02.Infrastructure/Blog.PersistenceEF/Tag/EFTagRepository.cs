@@ -11,12 +11,13 @@ public class EFTagRepository :ITagRepository
     {
         _tags = context.Set<Entities.Tag>();
     }
-    public async Task<bool> TagsValidation(HashSet<Guid> tags,
+    public async Task<bool> TagsValidation(List<Guid> tags,
         CancellationToken cancellationToken)
     {
-        var result = await _tags.Where(t=> tags.Contains(t.Id))
+        var distinctTags =  tags.Distinct().ToList();
+        var result = await _tags.Where(t=> distinctTags.Contains(t.Id))
             .ToListAsync(cancellationToken);
-        if (result.Count != tags.Count)
+        if (result.Count != distinctTags.Count)
         {
             return false;
         }

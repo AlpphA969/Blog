@@ -14,8 +14,8 @@ public class AddPostDto
     
     public bool IsPublished { get; set; } =  false;
 
-    public HashSet<Guid> Tags { get; set; } = [];
-    public HashSet<Guid> Categories { get; set; } = [];
+    public List<Guid> Tags { get; set; } = [];
+    public List<Guid> Categories { get; set; } = [];
     
     
 

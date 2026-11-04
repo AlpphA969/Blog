@@ -19,4 +19,13 @@ public class EFPostTagRepository : IPostTagRepository
         await _postTags.AddAsync(postTag, cancellationToken);
 
     }
+
+    public async Task<List<Guid>> GetTagsAsync(Guid postid, CancellationToken cancellationToken)
+    {
+        var tags = await _postTags
+            .Where(pt => pt.PostId == postid)
+            .Select(pt=> pt.TagId)
+            .ToListAsync(cancellationToken);
+        return tags;
+    }
 }

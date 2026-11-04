@@ -10,6 +10,9 @@ public interface IPostCategoryRepository
     Task AddPostCategoryAsync(PostCategory postCategory,
         CancellationToken cancellationToken);
     
+    Task<List<Guid>> GetCategoriesAsync(Guid id , 
+        CancellationToken cancellationToken);
+    
     
 
 

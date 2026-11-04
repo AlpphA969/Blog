@@ -3,23 +3,10 @@ using Microsoft.AspNetCore.Http;
 
 namespace Services.Posts.Contracts.Dto;
 
-public class UpdatePostDto
+public class UpdateTitleDto
 {
-    
     
     [Required] public string Title { get; set; } = default!;
     
-    
-    public bool IsPublished { get; set; }
-    
-    
-    public IFormFile? File { get; set; }
-    
-    
-    
-    
-    
-
-
 
 }
