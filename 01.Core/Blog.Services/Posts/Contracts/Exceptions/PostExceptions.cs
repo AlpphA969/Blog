@@ -16,6 +16,9 @@ public static class PostExceptions
     public static Error PostNotFound() => new Error("PostNotFound" ,
         ErrorType.NotFound , "PostNotFound");
     
+    public static Error TagRequired() => new Error("TagRequired" ,
+        ErrorType.InvalidInput , "TagRequired");
+    
     
     
     

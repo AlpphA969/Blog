@@ -39,6 +39,16 @@ public class PostService : IPostService
         AddPostDto dto , 
         CancellationToken cancellationToken = default)
     {
+
+        if (!dto.Categories.Any())
+        {
+            return PostExceptions.CategoryRequired();
+        }
+
+        if (!dto.Tags.Any())
+        {
+            return PostExceptions.TagRequired();
+        }
         
         var tagsValidation =
             await _tagRepository.TagsValidation(dto.Tags,
@@ -91,12 +101,7 @@ public class PostService : IPostService
         }
         
         
-        var addPostResultDto = new AddPostResultDto()
-        {
-            Id = postId,
-            ImageUrl = post.ImageUrl!,
 
-        };
         
         if(dto.File is not null)
         {
@@ -107,6 +112,17 @@ public class PostService : IPostService
             }
             post.ImageUrl = result.Value;
         }
+        
+        
+        
+        var addPostResultDto = new AddPostResultDto()
+        {
+            Id = postId,
+            ImageUrl = post.ImageUrl!,
+
+        };
+        
+        
         await _unitOfWork.SaveChangesAsync(cancellationToken);
         return addPostResultDto;
 
