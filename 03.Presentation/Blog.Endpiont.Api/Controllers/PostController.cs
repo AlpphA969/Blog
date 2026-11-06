@@ -34,8 +34,8 @@ public class PostController
         return dto;
     }
 
-    [HttpPut("updatetitle/{id}")]
-    public async Task<Result<Guid>> UpdatePostAsync(
+    [HttpPatch("updatetitle/{id}")]
+    public async Task<Result<Guid>> UpdateTitleAsync(
         UpdateTitleDto updatePostDto,Guid id,
         CancellationToken cancellationToken = default)
     {
@@ -46,7 +46,7 @@ public class PostController
         return result;
     }
 
-    [HttpPut("updatefile/{id}")]
+    [HttpPatch("updatefile/{id}")]
     public async Task<Result<Guid>> UpdateFileAsync(
         [FromForm] UpdateFileDto updateFileDto,
         Guid id,
@@ -59,7 +59,7 @@ public class PostController
         return result;
     }
 
-    [HttpPut("updatecategories/{id}")]
+    [HttpPatch("updatecategories/{id}")]
     public async Task<Result<Guid>> UpdateCategoriesAsync(
         UpdateCategoriesDto dto ,Guid id,
         CancellationToken  cancellationToken =default)
@@ -70,7 +70,7 @@ public class PostController
 
     }
 
-    [HttpPut("updatetags/{id}")]
+    [HttpPatch("updatetags/{id}")]
     public async Task<Result<Guid>> UpdateTagsAsync(
         UpdateTagsDto dto,
         Guid id,
@@ -81,7 +81,7 @@ public class PostController
 
     }
 
-    [HttpPut("publish/{id}")]
+    [HttpPatch("publish/{id}")]
     public async Task<Result> PublishPostAsync(Guid id,
         CancellationToken cancellationToken = default)
     {
